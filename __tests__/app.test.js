@@ -15,102 +15,103 @@ describe('API Routes', () => {
     return client.end();
   });
 
-  const expectedCats = [
+  const expectedMovies = [
     {
-      id: expect.any(Number),
-      name: 'Felix',
-      type: 'Tuxedo',
-      url: 'cats/felix.png',
-      year: 1892,
-      lives: 3,
-      isSidekick: false
-    },
-    {
-      id: expect.any(Number),
-      name: 'Garfield',
-      type: 'Orange Tabby',
-      url: 'cats/garfield.jpeg',
+      name: 'Dawn of the Dead',
+      genre: 'Zombie',
+      id: 1,
       year: 1978,
-      lives: 7,
-      isSidekick: false
+      director: 'George A. Romero',
+      country: 'US',
+      length: '2 Hours 7 Minutes',
     },
     {
-      id: expect.any(Number),
-      name: 'Duchess',
-      type: 'Angora',
-      url: 'cats/duchess.jpeg',
-      year: 1970,
-      lives: 9,
-      isSidekick: false
+      name: 'Suspiria',
+      genre: 'Giallo',
+      id: 2,
+      year: 1977,
+      director: 'Dario Argento',
+      country: 'Italy',
+      length: '1 Hour 32 Minutes',
+
     },
     {
-      id: expect.any(Number),
-      name: 'Stimpy',
-      type: 'Manx',
-      url: 'cats/stimpy.jpeg',
-      year: 1990,
-      lives: 1,
-      isSidekick: true
+      name: 'Friday The 13th',
+      genre: 'Slasher',
+      id: 3,
+      year: 1980,
+      director: 'Sean S. Cunningham',
+      country: 'US',
+      length: '1 Hour 35 Minutes',
     },
     {
-      id: expect.any(Number),
-      name: 'Sylvester',
-      type: 'Tuxedo',
-      url: 'cats/sylvester.jpeg',
-      year: 1945,
-      lives: 1,
-      isSidekick: true
+      name: 'Nightmare On Elm Street ',
+      genre: 'Slasher',
+      id: 4,
+      year: 1984,
+      director: 'Wes Craven',
+      country: 'US',
+      length: '1 Hour 31 Minutes',
     },
     {
-      id: expect.any(Number),
-      name: 'Tigger',
-      type: 'Orange Tabby',
-      url: 'cats/tigger.jpeg',
-      year: 1928,
-      lives: 8,
-      isSidekick: false
+      name: 'A Girl Walks Home Alone At Night',
+      genre: 'Vampire',
+      id: 5,
+      year: 2014,
+      director: 'Ana Lily Amirpour',
+      country: 'Iran',
+      length: '1 Hour 41 Minutes',
     },
     {
-      id: expect.any(Number),
-      name: 'Hello Kitty',
-      type: 'Angora',
-      url: 'cats/hello-kitty.jpeg',
-      year: 1974,
-      lives: 9,
-      isSidekick: false
+      name: 'Let The Right One In',
+      genre: 'Vampire',
+      id: 6,
+      year: 2008,
+      director: 'Tomas Alfredson',
+      country: 'Sweeden',
+      length: '1 Hour 54 Minutes',
     },
     {
-      id: expect.any(Number),
-      name: 'Hobbs',
-      type: 'Orange Tabby',
-      url: 'cats/hobbs.jpeg',
-      year: 1985,
-      lives: 6,
-      isSidekick: true
+      name: 'The Babadook',
+      genre: 'Supernatural',
+      id: 7,
+      year: 2014,
+      director: 'Jennifer Kent',
+      country: 'Australia',
+      length: '1 Hour 34 Minutes',
+    },
+    {
+      name: 'Cannibal Holocaust',
+      genre: 'Giallo',
+      id: 8,
+      year: 1980,
+      director: 'Ruggero Deodato',
+      country: 'Italy',
+      length: '1 Hour 35 Minutes',
     }
   ];
 
   // If a GET request is made to /api/cats, does:
   // 1) the server respond with status of 200
   // 2) the body match the expected API data?
-  it('GET /api/cats', async () => {
+  it('GET /api/movies', async () => {
     // act - make the request
-    const response = await request.get('/api/cats');
+    const response = await request.get('/api/movies');
 
     // was response OK (200)?
     expect(response.status).toBe(200);
 
     // did it return the data we expected?
-    expect(response.body).toEqual(expectedCats);
+    expect(response.body).toEqual(expectedMovies);
 
   });
 
   // If a GET request is made to /api/cats/:id, does:
   // 1) the server respond with status of 200
   // 2) the body match the expected API data for the cat with that id?
-  test('GET /api/cats/:id', async () => {
-    const response = await request.get('/api/cats/2');
+  test('GET /api/movies/:id', async () => {
+    const response = await request.get('/api/movies/2');
     expect(response.status).toBe(200);
-    expect(response.body).toEqual(expectedCats[1]);
+    expect(response.body).toEqual(expectedMovies[1]);
   });
 });
