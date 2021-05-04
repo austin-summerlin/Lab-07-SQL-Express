@@ -10,20 +10,20 @@ async function run() {
 
     // run a query to create tables
     await client.query(`          
-      CREATE TABLE cats (
+      CREATE TABLE movies (
         id SERIAL PRIMARY KEY NOT NULL,
         name VARCHAR(512) NOT NULL,
-        type VARCHAR(512) NOT NULL,
-        url VARCHAR(1024) NOT NULL,
+        genre VARCHAR(512) NOT NULL,
         year INTEGER NOT NULL,
-        lives INTEGER NOT NULL,
-        is_sidekick BOOLEAN DEFAULT FALSE
+        director VARCHAR(1024) NOT NULL,
+        country VARCHAR(512) NOT NULL,
+        length VARCHAR(512) NOT NULL
       );
     `);
 
     console.log('create tables complete');
   }
-  catch(err) {
+  catch (err) {
     // problem? let's see the error...
     console.log(err);
   }
