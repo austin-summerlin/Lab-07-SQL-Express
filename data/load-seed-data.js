@@ -13,10 +13,10 @@ async function run() {
     await Promise.all(
       movies.map(movie => {
         return client.query(`
-          INSERT INTO movies (name, sub_genre, year, director, country, length)
+          INSERT INTO movies (name, genre, year, director, country, length)
           VALUES ($1, $2, $3, $4, $5, $6);
         `,
-          [movie.name, movie.subGenre, movie.year, movie.director, movie.country, movie.length]);
+          [movie.name, movie.genre, movie.year, movie.director, movie.country, movie.length]);
       })
     );
 
