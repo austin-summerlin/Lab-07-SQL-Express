@@ -19,9 +19,9 @@ describe('API Routes', () => {
   });
 
   let dawn = {
+    id: expect.any(Number),
     name: 'Dawn of the Dead',
     genre: 'Zombie',
-    id: expect.any(Number),
     Year: 1978,
     director: 'George A. Romero',
     country: 'US',
@@ -29,9 +29,9 @@ describe('API Routes', () => {
   };
 
   let suspiria = {
+    id: expect.any(Number),
     name: 'Suspiria',
     genre: 'Giallo',
-    id: expect.any(Number),
     Year: 1977,
     director: 'Dario Argento',
     country: 'Italy',
@@ -39,9 +39,9 @@ describe('API Routes', () => {
   };
 
   let friday = {
+    id: expect.any(Number),
     name: 'Friday The 13th',
     genre: 'Slasher',
-    id: expect.any(Number),
     Year: 1980,
     director: 'Sean S. Cunningham',
     country: 'US',
