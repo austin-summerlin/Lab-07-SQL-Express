@@ -107,29 +107,29 @@ describe('API Routes', () => {
       expect(response.body).toEqual(expect.arrayContaining(expected));
     });
 
-    test.skip('GET suspiria from /api/movies/:id', async () => {
+    test('GET suspiria from /api/movies/:id', async () => {
       const response = await request.get(`/api/movies/${suspiria.id}`);
       expect(response.status).toBe(200);
-      expect(response.body).toEqual(suspiria);
+      expect(response.body).toEqual({ ...suspiria, userName: user.name });
     });
 
-    test.skip('DELETE suspiria from /api/movies', async () => {
+    test('DELETE suspiria from /api/movies/:id', async () => {
       const response = await request.delete(`/api/movies/${suspiria.id}`);
       expect(response.status).toBe(200);
       expect(response.body).toEqual(suspiria);
 
       const getResponse = await request.get('/api/movies');
       expect(getResponse.status).toBe(200);
-      expect(getResponse.body).toEqual(expect.arrayContaining([dawn, friday]));
+      expect(getResponse.body.find(movie => movie.id === suspiria.id)).toBeUndefined();
     });
 
-    describe.skip('seed data tests', () => {
+    describe('seed data tests', () => {
 
       beforeAll(() => {
         execSync('npm run setup-db');
       });
 
-      it.skip('GET /api/movies', async () => {
+      test('GET /api/movies', async () => {
         // act - make the request
         const response = await request.get('/api/movies');
 
@@ -147,7 +147,9 @@ describe('API Routes', () => {
           year: expect.any(Number),
           director: expect.any(String),
           country: expect.any(String),
-          length: expect.any(String)
+          length: expect.any(String),
+          userId: expect.any(Number),
+          userName: expect.any(String)
         });
       });
     });
