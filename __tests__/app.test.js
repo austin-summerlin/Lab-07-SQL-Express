@@ -100,28 +100,3 @@ describe('API Routes', () => {
   });
 
 });
-
-describe('seed data tests', () => {
-
-  beforeAll(() => {
-    execSync('npm run setup-db');
-  });
-
-  it('GET /api/movies', async () => {
-    const response = await request.get('/api/movies');
-
-    expect(response.status).toBe(200);
-
-    expect(response.body.length).toBeGreatherThan(0);
-
-    expect(response.body[0]).toEqual({
-      id: expect.any(Number),
-      name: expect.any(String),
-      genre: expect.any(String),
-      year: expect.any(Number),
-      director: expect.any(String),
-      country: expect.any(String),
-      length: expect.any(String)
-    });
-  });
-});
