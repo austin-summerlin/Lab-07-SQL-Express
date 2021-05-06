@@ -19,36 +19,36 @@ describe('API Routes', () => {
   });
 
   let dawn = {
+    id: expect.any(Number),
     name: 'Dawn of the Dead',
     genre: 'Zombie',
-    id: expect.any(Number),
-    Year: 1978,
+    year: 1978,
     director: 'George A. Romero',
     country: 'US',
     length: '2 Hours 7 Minutes'
   };
 
   let suspiria = {
+    id: expect.any(Number),
     name: 'Suspiria',
     genre: 'Giallo',
-    id: expect.any(Number),
-    Year: 1977,
+    year: 1977,
     director: 'Dario Argento',
     country: 'Italy',
     length: '1 Hours 32 Minutes'
   };
 
   let friday = {
+    id: expect.any(Number),
     name: 'Friday The 13th',
     genre: 'Slasher',
-    id: expect.any(Number),
-    Year: 1980,
+    year: 1980,
     director: 'Sean S. Cunningham',
     country: 'US',
     length: '1 Hours 35 Minutes'
   };
 
-  it('POST dawn to /api/movies', async () => {
+  test('POST dawn to /api/movies', async () => {
     const response = await request
       .post('/api/movies')
       .send(dawn);
@@ -59,7 +59,7 @@ describe('API Routes', () => {
     dawn = response.body;
   });
 
-  it('PUT updated dawn to /api/movies/:id', async () => {
+  test('PUT updated dawn to /api/movies/:id', async () => {
     dawn.year = 1984;
     dawn.name = 'Day of the Dead';
 
@@ -71,10 +71,10 @@ describe('API Routes', () => {
     expect(response.body).toEqual(dawn);
   });
 
-  it('GET list of movies from /api/movies', async () => {
-    const r1 = await (await request.post('/api/movies')).send(suspiria);
+  test('GET list of movies from /api/movies', async () => {
+    const r1 = await request.post('/api/movies').send(suspiria);
     suspiria = r1.body;
-    const r2 = await (await request.post('/api/movies')).send(friday);
+    const r2 = await request.post('/api/movies').send(friday);
     friday = r2.body;
 
     const response = await request.get('/api/movies');
@@ -83,13 +83,13 @@ describe('API Routes', () => {
     expect(response.body).toEqual(expect.arrayContaining([dawn, suspiria, friday]));
   });
 
-  it('GET suspiria from /api/movies/:id', async () => {
+  test('GET suspiria from /api/movies/:id', async () => {
     const response = await request.get(`/api/movies/${suspiria.id}`);
     expect(response.status).toBe(200);
     expect(response.body).toEqual(suspiria);
   });
 
-  it('DELETE suspiria from /api/movies', async () => {
+  test('DELETE suspiria from /api/movies', async () => {
     const response = await request.delete(`/api/movies/${suspiria.id}`);
     expect(response.status).toBe(200);
     expect(response.body).toEqual(suspiria);
@@ -99,26 +99,4 @@ describe('API Routes', () => {
     expect(getResponse.body).toEqual(expect.arrayContaining([dawn, friday]));
   });
 
-});
-
-describe('seed data tests', () => {
-
-  beforeAll(() => {
-    execSync('npm run setup-db');
-  });
-
-  it('GET /api/movies', async () => {
-    const response = await request.get('/api/movies');
-    expect(response.status).toBe(200);
-    expect(response.body.length).toBeGreatherThan(0);
-    expect(response.body[0].toEqual({
-      id: expect.any(Number),
-      name: expect.any(String),
-      genre: expect.any(String),
-      year: expect.any(Number),
-      director: expect.any(String),
-      country: expect.any(String),
-      length: expect.any(String)
-    }));
-  });
 });
