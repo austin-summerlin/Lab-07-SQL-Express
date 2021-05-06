@@ -48,7 +48,7 @@ describe('API Routes', () => {
     length: '1 Hours 35 Minutes'
   };
 
-  it('POST dawn to /api/movies', async () => {
+  test('POST dawn to /api/movies', async () => {
     const response = await request
       .post('/api/movies')
       .send(dawn);
@@ -59,7 +59,7 @@ describe('API Routes', () => {
     dawn = response.body;
   });
 
-  it('PUT updated dawn to /api/movies/:id', async () => {
+  test('PUT updated dawn to /api/movies/:id', async () => {
     dawn.year = 1984;
     dawn.name = 'Day of the Dead';
 
