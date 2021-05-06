@@ -98,5 +98,34 @@ describe('API Routes', () => {
       expect(getResponse.status).toBe(200);
       expect(getResponse.body).toEqual(expect.arrayContaining([dawn, friday]));
     });
+
+    describe('seed data tests', () => {
+
+      beforeAll(() => {
+        execSync('npm run setup-db');
+      });
+
+      it('GET /api/movies', async () => {
+        // act - make the request
+        const response = await request.get('/api/movies');
+
+        // was response OK (200)?
+        expect(response.status).toBe(200);
+
+        // did it return some data?
+        expect(response.body.length).toBeGreaterThan(0);
+
+        // did the data get inserted?
+        expect(response.body[0]).toEqual({
+          id: expect.any(Number),
+          name: expect.any(String),
+          genre: expect.any(String),
+          year: expect.any(Number),
+          director: expect.any(String),
+          country: expect.any(String),
+          length: expect.any(String)
+        });
+      });
+    });
   });
 });
