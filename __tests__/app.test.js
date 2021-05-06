@@ -73,7 +73,7 @@ describe('API Routes', () => {
       dawn = response.body;
     });
 
-    test.skip('PUT updated dawn to /api/movies/:id', async () => {
+    test('PUT updated dawn to /api/movies/:id', async () => {
       dawn.year = 1984;
       dawn.name = 'Day of the Dead';
 
@@ -85,7 +85,7 @@ describe('API Routes', () => {
       expect(response.body).toEqual(dawn);
     });
 
-    test.skip('GET list of movies from /api/movies', async () => {
+    test('GET list of movies from /api/movies', async () => {
       suspiria.userId = user.id;
       const r1 = await request.post('/api/movies').send(suspiria);
       suspiria = r1.body;
