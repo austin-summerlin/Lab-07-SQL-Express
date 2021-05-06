@@ -9,7 +9,15 @@ async function run() {
   try {
 
     // run a query to create tables
-    await client.query(`          
+    await client.query(`
+    
+      CREATE TABLE users (
+        id SERIAL PRIMARY KEY NOT NULL,
+        name VARCHAR(512) NOT NULL,
+        email VARCHAR(512) NOT NULL,
+        password_hash VARCHAR(512) NOT NULL
+      );
+
       CREATE TABLE movies (
         id SERIAL PRIMARY KEY NOT NULL,
         name VARCHAR(512) NOT NULL,
@@ -18,6 +26,7 @@ async function run() {
         director VARCHAR(1024) NOT NULL,
         country VARCHAR(512) NOT NULL,
         length VARCHAR(512) NOT NULL
+        user_id INTERGER NOT NULL REFERENCES users(id)
       );
     `);
 
