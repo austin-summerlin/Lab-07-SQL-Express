@@ -10,7 +10,6 @@ async function run() {
 
     // run a query to create tables
     await client.query(`
-    
       CREATE TABLE users (
         id SERIAL PRIMARY KEY NOT NULL,
         name VARCHAR(512) NOT NULL,
@@ -25,8 +24,8 @@ async function run() {
         year INTEGER NOT NULL,
         director VARCHAR(1024) NOT NULL,
         country VARCHAR(512) NOT NULL,
-        length VARCHAR(512) NOT NULL
-        user_id INTERGER NOT NULL REFERENCES users(id)
+        length VARCHAR(512) NOT NULL,
+        user_id INTEGER NOT NULL REFERENCES users(id)
       );
     `);
 
