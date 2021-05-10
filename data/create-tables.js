@@ -25,6 +25,7 @@ async function run() {
         director VARCHAR(1024) NOT NULL,
         country VARCHAR(512) NOT NULL,
         length VARCHAR(512) NOT NULL,
+        url VARCHAR(512) NOT NULL,
         user_id INTEGER NOT NULL REFERENCES users(id)
       );
     `);
