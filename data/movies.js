@@ -17,7 +17,7 @@ const movies = [
     director: 'Dario Argento',
     country: 'Italy',
     length: '1 Hour 32 Minutes',
-    url: './movies/suspiria.png'
+    url: '/movies/suspiria.png'
   },
 
   {
@@ -27,7 +27,7 @@ const movies = [
     director: 'Sean S. Cunningham',
     country: 'US',
     length: '1 Hour 35 Minutes',
-    url: './movies/friday.png'
+    url: '/movies/friday.png'
   },
 
   {
@@ -37,7 +37,7 @@ const movies = [
     director: 'Wes Craven',
     country: 'US',
     length: '1 Hour 31 Minutes',
-    url: './movies/nightmare.png'
+    url: '/movies/nightmare.png'
   },
 
   {
@@ -47,7 +47,7 @@ const movies = [
     director: 'Ana Lily Amirpour',
     country: 'Iran',
     length: '1 Hour 41 Minutes',
-    url: './movies/girl.png'
+    url: '/movies/girl.png'
   },
 
   {
@@ -57,7 +57,7 @@ const movies = [
     director: 'Tomas Alfredson',
     country: 'Sweeden',
     length: '1 Hour 54 Minutes',
-    url: './movies/let.png'
+    url: '/movies/let.png'
   },
 
   {
@@ -67,7 +67,7 @@ const movies = [
     director: 'Jennifer Kent',
     country: 'Australia',
     length: '1 Hour 34 Minutes',
-    url: './movies/babadook.png'
+    url: '/movies/babadook.png'
   },
 
   {
@@ -77,7 +77,7 @@ const movies = [
     director: 'Ruggero Deodato',
     country: 'Italy',
     length: '1 Hour 35 Minutes',
-    url: './movies/cannibal.png'
+    url: '/movies/cannibal.png'
   }
 ];
 
