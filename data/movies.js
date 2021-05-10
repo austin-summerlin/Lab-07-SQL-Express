@@ -7,7 +7,9 @@ const movies = [
     director: 'George A. Romero',
     country: 'US',
     length: '2 Hours 7 Minutes',
+    url: '/movies/dawn.png'
   },
+
   {
     name: 'Suspiria',
     genre: 'Giallo',
@@ -15,8 +17,9 @@ const movies = [
     director: 'Dario Argento',
     country: 'Italy',
     length: '1 Hour 32 Minutes',
-
+    url: './movies/suspiria.png'
   },
+
   {
     name: 'Friday The 13th',
     genre: 'Slasher',
@@ -24,7 +27,9 @@ const movies = [
     director: 'Sean S. Cunningham',
     country: 'US',
     length: '1 Hour 35 Minutes',
+    url: './movies/friday.png'
   },
+
   {
     name: 'Nightmare On Elm Street ',
     genre: 'Slasher',
@@ -32,7 +37,9 @@ const movies = [
     director: 'Wes Craven',
     country: 'US',
     length: '1 Hour 31 Minutes',
+    url: './movies/nightmare.png'
   },
+
   {
     name: 'A Girl Walks Home Alone At Night',
     genre: 'Vampire',
@@ -40,7 +47,9 @@ const movies = [
     director: 'Ana Lily Amirpour',
     country: 'Iran',
     length: '1 Hour 41 Minutes',
+    url: './movies/girl.png'
   },
+
   {
     name: 'Let The Right One In',
     genre: 'Vampire',
@@ -48,7 +57,9 @@ const movies = [
     director: 'Tomas Alfredson',
     country: 'Sweeden',
     length: '1 Hour 54 Minutes',
+    url: './movies/let.png'
   },
+
   {
     name: 'The Babadook',
     genre: 'Supernatural',
@@ -56,7 +67,9 @@ const movies = [
     director: 'Jennifer Kent',
     country: 'Australia',
     length: '1 Hour 34 Minutes',
+    url: './movies/babadook.png'
   },
+
   {
     name: 'Cannibal Holocaust',
     genre: 'Giallo',
@@ -64,6 +77,7 @@ const movies = [
     director: 'Ruggero Deodato',
     country: 'Italy',
     length: '1 Hour 35 Minutes',
+    url: './movies/cannibal.png'
   }
 ];
 
